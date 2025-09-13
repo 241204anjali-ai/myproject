@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact Book</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        <h1>📒 Contact Book</h1>
+        <a href="{{ url_for('add_contact') }}">➕ Add Contact</a>
+        <a href="{{ url_for('view_contacts') }}">👀 View Contacts</a>
+    </div>
+<!-- Footer -->
+<footer>
+    &copy  Contact Book. All rights reserved.
+    <a href="#">Privacy Policy</a> |
+    <a href="#">Terms of Service</a>
+</footer>
+
+</body>
+</html>
+

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ 'Update Contact' if contact else 'Add Contact' }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        <h1>{{ '✏️ Update Contact' if contact else '➕ Add New Contact' }}</h1>
+
+        <!-- Flash Messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              <p>{{ message }}</p>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+
+        <form method="POST">
+            <input type="text" name="name" placeholder="Name" value="{{ contact.name if contact else '' }}" required>
+            <input type="text" name="phone" placeholder="Phone" value="{{ contact.phone if contact else '' }}" required>
+            <input type="email" name="email" placeholder="Email" value="{{ contact.email if contact else '' }}">
+            <input type="text" name="address" placeholder="Address" value="{{ contact.address if contact else '' }}">
+            <button type="submit">{{ 'Update' if contact else 'Add' }}</button>
+        </form>
+         <div class="add-gif">
+        <img src="{{ url_for('static', filename='mygif.gif') }}" alt="My GIF">
+    </div>
+
+        <br>
+        <a href="{{ url_for('home') }}">🏠 Back to Home</a>
+    </div>
+
+
+<footer>
+    &copy; 2025  Contact Book. All rights reserved.
+    <a href="#">Privacy Policy</a> |
+    <a href="#">Terms of Service</a>
+</footer>
+
+</body>
+</html>
+
